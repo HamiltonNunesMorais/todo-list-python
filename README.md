@@ -13,3 +13,4 @@ uvicorn main:app --reload
 
 Swagger: http://127.0.0.1:8000/docs
 
+pytest tests/test_todos.py -v -s
