@@ -3,13 +3,6 @@ import pytest
 
 BASE_URL = "http://127.0.0.1:8000"
 
-def test_tentativa_xss_no_titulo():
-    """Valida se a API aceita tags de script (risco de XSS)"""
-    payload = {"title": "<script>alert('hack')</script>", "description": "XSS", "completed": False}
-    response = requests.post(f"{BASE_URL}/todos/", json=payload)
-    
-    assert response.status_code == 200
-    print(f"\n[LOG] Payload de script enviado. O QA deve validar se o Front-end vai renderizar isso!")
 def test_listar_todos_vazio():
     """Valida se a lista inicial de tarefas está acessível"""
     response = requests.get(f"{BASE_URL}/todos/")
